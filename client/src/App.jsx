@@ -1,9 +1,12 @@
-
 import Layout from './Layout'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import { Toaster } from 'react-hot-toast'
 import SummaryPage from './Pages/SummaryPage'
+import AiResultCard from './Pages/Result'
+import LoginPage from './Pages/LoginPage'
+import SingUpPage from './Pages/SingUpPage'
+import MarketPlace from './Pages/MarketPlace'
 
 
 
@@ -16,8 +19,14 @@ const App = () => {
 
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<HomePage/>}/>
-          <Route path="/get_plant/:id" element={<SummaryPage />} />
+          {/* Secured Routes */}
+          <Route index element={
+              <HomePage/>
+            }/>
+          <Route path="/get_plant/:id" element={
+            <SummaryPage />} />
+          <Route path="/results" element={ <AiResultCard /> } />
+          <Route path="/market" element={ <MarketPlace /> } />
         </Route>
       </Routes>
     </>
@@ -25,4 +34,5 @@ const App = () => {
 
 }
 
-export default App
+export default App;
+
